@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@types/js-base64": "^2.3.1",
+    "@types/nprogress": "0.0.29",
     "axios": "^0.18.0",
     "element-ui": "^2.5.4",
     "js-base64": "^2.5.1",
     "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
