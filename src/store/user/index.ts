@@ -1,6 +1,7 @@
 import store from '@/store/index.ts'
 import { Module, VuexModule, Mutation, Action, getModule } from 'vuex-module-decorators'
 import { loginByUsername } from '@/api/login.ts'
+import { setToken, getToken, removeToken } from '@/utils/auth.ts'
 
 interface UserInfo {
   username: string;
@@ -15,24 +16,28 @@ class User extends VuexModule {
   public userId: string = ''
 
   @Mutation
-  SET_USERNAME(userName: string) {
+  private SET_USERNAME(userName: string) {
     this.userName = userName
   }
-  SET_NAME(name: string) {
+  @Mutation
+  private SET_NAME(name: string) {
     this.name = name
   }
-  SET_TOKEN(token: string) {
+  @Mutation
+  private SET_TOKEN(token: string) {
     this.token = token
   }
-  SET_USERID(userId: string) {
+  @Mutation
+  private SET_USERID(userId: string) {
     this.userId = userId
   }
 
-  @Action
+  @Action({commit: 'SET_TOKEN'})
   public async loginByName(userInfo: UserInfo) {
     const username = userInfo.username.trim()
-    const data =  await loginByUsername(username, userInfo.password)
-    return data
+    const { data } =  await loginByUsername(username, userInfo.password)
+    setToken(data.data.token)
+    return data.data.token
   }
 }
 
