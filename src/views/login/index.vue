@@ -37,8 +37,8 @@ export default class Login extends Vue{
   private handleLogin() {
     this.loading = true
     UserModule.loginByName(this.formLogin).then(res => {
-      console.log(res)
       this.loading = false
+      this.$router.push({path: '/'})
     })
   }
 }

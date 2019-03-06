@@ -16,22 +16,22 @@ class User extends VuexModule {
   public userId: string = ''
   public roles: [] = []
 
-  @Mutation
-  private SET_USERNAME(userName: string) {
-    this.userName = userName
-  }
-  @Mutation
-  private SET_NAME(name: string) {
-    this.name = name
-  }
+  // @Mutation
+  // private SET_USERNAME(userName: string) {
+  //   this.userName = userName
+  // }
+  // @Mutation
+  // private SET_NAME(name: string) {
+  //   this.name = name
+  // }
   @Mutation
   private SET_TOKEN(token: string) {
     this.token = token
   }
-  @Mutation
-  private SET_USERID(userId: string) {
-    this.userId = userId
-  }
+  // @Mutation
+  // private SET_USERID(userId: string) {
+  //   this.userId = userId
+  // }
 
   @MutationAction({mutate: ['name', 'userId', 'roles']})
   public async getUserInfo() {
@@ -40,7 +40,6 @@ class User extends VuexModule {
       throw new Error('Token is undefined')
     }
     const { data } = await getUserInfoByToken(token)
-    console.log(data)
     return {
       name: data.data.name,
       userId: data.data.userId,
@@ -54,6 +53,12 @@ class User extends VuexModule {
     const { data } =  await loginByUsername(username, userInfo.password)
     setToken(data.data.token)
     return data.data.token
+  }
+
+  @Action({commit: 'SET_TOKEN'})
+  public async FedLogOut() {
+    removeToken()
+    return ''
   }
 }
 

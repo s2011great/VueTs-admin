@@ -24,7 +24,7 @@ router.beforeEach((to: Route, from: Route, next: any) => {
           next()
         })
       } else {
-        
+        next()
       }
     }
     NProgress.done()
