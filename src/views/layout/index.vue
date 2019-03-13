@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="sidebar-container">
-      <div></div>
+      <Sidebar></Sidebar>
     </div>
     <div class="main-container">
       <div class="navbar"></div>
@@ -13,7 +13,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-@Component
+import Sidebar from './components/sidebar/index.vue'
+@Component({
+  components: {
+    Sidebar,
+  },
+})
 export default class Layout extends Vue {
 }
 </script>
@@ -31,11 +36,6 @@ export default class Layout extends Vue {
       bottom: 0px;
       z-index: 1001;
       overflow-y: auto;
-      background-color: red;
-      div {
-        width: 100%;
-        height: 1600px;
-      }
     }
     .main-container {
       position: relative;

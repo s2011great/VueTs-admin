@@ -4,14 +4,9 @@ import 'nprogress/nprogress.css'// progress bar style
 import { getToken } from './auth'
 import { Route } from 'vue-router'
 import { UserModule } from '@/store/user/index.ts'
+import { MenuModule } from '@/store/menu/index.ts'
 
 const whiteList = ['/login']
-
-interface UserInfo {
-  name: string
-  userId: string
-  roles: []
-}
 
 router.beforeEach((to: Route, from: Route, next: any) => {
   NProgress.start()
@@ -20,8 +15,11 @@ router.beforeEach((to: Route, from: Route, next: any) => {
       next({ path: '/' })
     } else {
       if (UserModule.roles.length === 0) {
-        UserModule.getUserInfo().then((userInfo: UserInfo) => {
-          next()
+        UserModule.getUserInfo().then(() => {
+          MenuModule.generateMenus(UserModule.menus).then(() => {
+            router.addRoutes(MenuModule.menus)
+            next({ ...to, replace: true })
+          })
         })
       } else {
         next()
