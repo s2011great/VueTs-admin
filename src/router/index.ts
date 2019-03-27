@@ -7,6 +7,11 @@ Vue.use(Router);
 /**
  * hidden: true  这个路由不在侧边导航栏sidebar中显示
  * alwaysShow: true  表示路由必须显示，无论有没有children项
+ * 
+ * meta: {
+ *  title: '首页'  生成路由菜单的title
+ *  icon:  'xxx'  设置菜单图标
+ * }
  */
 
  // 静态路由

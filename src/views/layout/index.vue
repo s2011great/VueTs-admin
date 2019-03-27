@@ -42,6 +42,11 @@ export default class Layout extends Vue {
       position: relative;
       margin-left: 180px;
       height: 100%;
+      .navbar {
+        height: 60px;
+        width: 100%;
+        background-color: #DCDFE6;
+      }
       .main {
         width: 100%;
         height: 1000px;
