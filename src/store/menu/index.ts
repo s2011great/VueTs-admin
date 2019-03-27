@@ -1,6 +1,6 @@
 import store from '@/store/index'
 import {getModule, VuexModule, Module, Mutation, Action } from 'vuex-module-decorators'
-import { constantRouterMap } from '@/router/index'
+import { asyncRoutes } from '@/router/index'
 
 
 /**
@@ -48,7 +48,7 @@ class Menu extends VuexModule {
 
   @Action({ commit: 'SET_ROUTERS' })
   public async generateMenus(menus: []) {
-    const accessedRouters = filterAsyncRouter(constantRouterMap, menus)
+    const accessedRouters = filterAsyncRouter(asyncRoutes, menus)
     return accessedRouters
   }
 }

@@ -6,7 +6,10 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css/normalize.css'
 
+// 前端访问权限检测
 import '@/utils/permission.ts'
+// 全局样式
+import '@/styles/index.scss'
 
 Vue.use(ElementUI)
 

@@ -1,0 +1,17 @@
+#app {
+  .sidebar-container {
+    .scrollbar-wrapper {
+      .el-scrollbar__wrap {
+        overflow-x: hidden;
+      }
+      .is-horizontal {
+        display: none;
+      }
+      .el-menu {
+        border: none;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
