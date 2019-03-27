@@ -11,6 +11,14 @@
         border: none;
         height: 100%;
         width: 100%;
+        .el-menu-item, .el-submenu .el-submenu__title {
+          text-align: left;
+          font-size: 16px;
+          font-family: 'Microsoft Yahei';
+        }
+      }
+      .svg-icon {
+        margin-right: 16px;
       }
     }
   }

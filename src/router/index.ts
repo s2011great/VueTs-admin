@@ -37,7 +37,7 @@ export const asyncRoutes = [
       {
         path: 'home',
         component: () => import('@/views/home/index.vue'),
-        meta: { title: 'home' }
+        meta: { title: '首页', icon: 'dashboard' }
       }
     ],
   },
@@ -46,37 +46,37 @@ export const asyncRoutes = [
     component: Layout,
     name: 'system',
     redirect: '/system/org',
-    meta: { title: 'system' },
+    meta: { title: '系统管理', icon: 'work' },
     children: [
       {
         path: 'org',
         component: () => import('@/views/org/index.vue'),
         name: 'org',
-        meta: { title: 'org' }
+        meta: { title: '组织机构', icon: 'organization' }
       },
       {
         path: 'dict',
         component: () => import('@/views/dict/index.vue'),
         name: 'dict',
-        meta: { title: 'dict' }
+        meta: { title: '数据字典', icon: 'dict' }
       },
       {
         path: 'actor',
         component: () => import('@/views/actor/index.vue'),
         name: 'actor',
-        meta: { title: 'actor' }
+        meta: { title: '角色管理', icon: 'role' }
       },
       {
         path: 'user',
         component: () => import('@/views/user/index.vue'),
         name: 'user',
-        meta: { title: 'user' }
+        meta: { title: '用户管理', icon: 'people' }
       },
       {
         path: 'permission',
         component: () => import('@/views/permission/index.vue'),
         name: 'permission',
-        meta: { title: 'permission' }
+        meta: { title: '权限管理', icon: 'permission' }
       }
     ],
   },

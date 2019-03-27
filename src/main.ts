@@ -10,6 +10,9 @@ import 'normalize.css/normalize.css'
 import '@/utils/permission.ts'
 // 全局样式
 import '@/styles/index.scss'
+// 引入icon组件，全局使用
+// <icon-svg icon-class="xxxx" />
+import './icons/index.ts'
 
 Vue.use(ElementUI)
 

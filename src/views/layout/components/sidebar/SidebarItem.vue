@@ -4,14 +4,16 @@
     <template v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow">
       <a :href="onlyOneChild.path" target="_blank" @click="clickLink(onlyOneChild.path, $event)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)">
-          {{ onlyOneChild.meta.title }}
+          <svg-icon v-if="onlyOneChild.meta && onlyOneChild.meta.icon" :iconClass="onlyOneChild.meta.icon"></svg-icon>
+          <span  v-if="onlyOneChild.meta && onlyOneChild.meta.title" slot="title">{{ onlyOneChild.meta.title }}</span>
         </el-menu-item>
       </a>
     </template>
     <!-- 多级菜单目录 -->
     <el-submenu v-else :index="item.path">
       <template slot="title">
-        <span v-if="item.meta" slot="title">{{ item.meta.title }}</span>
+        <svg-icon v-if="item.meta && item.meta.icon" :iconClass="item.meta.icon"></svg-icon>
+        <span v-if="item.meta && item.meta.title" slot="title">{{ item.meta.title }}</span>
       </template>
       <template v-for="child in item.children">
         <sidebar-item
@@ -21,7 +23,8 @@
           :base-path="resolvePath(child.path)"/>
         <a v-else :href="child.path" :key="child.name" target="_blank" @click="clickLink(child.path, $event)">
           <el-menu-item :index="resolvePath(child.path)">
-            {{ child.meta.title }}
+            <svg-icon v-if="child.meta && child.meta.icon" :iconClass="child.meta.icon"></svg-icon>
+            <span v-if="child.meta && child.meta.title" slot="title">{{ child.meta.title }}</span>
           </el-menu-item>
         </a>
       </template>
