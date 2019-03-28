@@ -1,10 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container" :class="classObj">
     <div class="sidebar-container">
-      <Sidebar></Sidebar>
+      <sidebar></sidebar>
     </div>
     <div class="main-container">
-      <div class="navbar"></div>
+      <div class="navbar">
+        <navbar></navbar>
+      </div>
       <div class="main">
         <router-view></router-view>
       </div>
@@ -13,13 +15,23 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { AppModule } from '@/store/app/index.ts'
 import Sidebar from './components/sidebar/index.vue'
+import Navbar from './components/navbar.vue'
 @Component({
   components: {
     Sidebar,
+    Navbar,
   },
 })
 export default class Layout extends Vue {
+  // computed
+  // sidebar.opened为false，添加hideSidebar class
+  get classObj() {
+    return {
+      hideSidebar: !AppModule.sidebar.opened
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -43,13 +55,13 @@ export default class Layout extends Vue {
       margin-left: 180px;
       height: 100%;
       .navbar {
-        height: 60px;
+        height: 50px;
         width: 100%;
-        background-color: #DCDFE6;
       }
       .main {
         width: 100%;
-        height: 1000px;
+        /* 100vh - (main-container中除了main之外的高度) */
+        min-height: calc(100vh - 50px);
       }
     }
   }

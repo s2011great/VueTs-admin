@@ -1,5 +1,6 @@
 #app {
   .sidebar-container {
+    transition: width 0.3s; // 侧边栏显示/隐藏动画
     .scrollbar-wrapper {
       .el-scrollbar__wrap {
         overflow-x: hidden;
@@ -20,6 +21,29 @@
       .svg-icon {
         margin-right: 16px;
       }
+    }
+  }
+  
+  // 隐藏侧边栏
+  .hideSidebar {
+    .sidebar-container {
+      width: 54px !important;
+      .el-menu--collapse {
+        .el-submenu {
+          &>.el-submenu__title {
+            &>span {
+              height: 0;
+              width: 0;
+              overflow: hidden;
+              visibility: hidden;
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+    .main-container {
+      margin-left: 54px;
     }
   }
 }

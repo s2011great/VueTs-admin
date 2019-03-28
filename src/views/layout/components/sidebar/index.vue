@@ -17,6 +17,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 import SidebarItem from './SidebarItem.vue'
 import { MenuModule } from '@/store/menu/index.ts'
+import { AppModule } from '@/store/app/index.ts'
 @Component({
   components: {
     SidebarItem
@@ -27,7 +28,7 @@ export default class Sidebar extends Vue {
   private openeds = []
   // computed
   get isCollapse() {
-    return false
+    return !AppModule.sidebar.opened
   }
   get menus() {
     return MenuModule.menus
