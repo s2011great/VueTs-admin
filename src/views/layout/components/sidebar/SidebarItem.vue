@@ -39,11 +39,12 @@ import { Progress } from 'element-ui';
     name: 'SidebarItem'
   })
 export default class SidebarItem extends Vue {
+  // data
+  private onlyOneChild: Object = {}
+
   // prop
   @Prop({ required: true }) private item!: Object
   @Prop({ default: '' }) private basePath!: String
-  // data
-  private onlyOneChild: Object = {}
 
   // methods
   /***

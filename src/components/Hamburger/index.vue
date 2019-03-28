@@ -20,7 +20,6 @@ export default class Hamburger extends Vue {
 .hamburger {
   .hamburger-icon {
     display: inline-block;
-    vertical-align: middle;
   }
   .hamburger-icon.is-active {
     transform: rotate(90deg);

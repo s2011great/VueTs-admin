@@ -1,17 +1,21 @@
 <template>
   <div  class="navbar">
     <hamburger class="hamburger-container" :is-active="isActive" :toggle-click="toggleClick"></hamburger>
+    <breadcrumb class="breadcrumb-container"></breadcrumb>
   </div>
 </template>
 <script lang="ts">
-import Hamburger from '@/components/Hamburger/index.vue'
 import { Vue, Component } from 'vue-property-decorator'
 import { AppModule } from '@/store/app/index.ts'
+
+import Hamburger from '@/components/Hamburger/index.vue'
+import Breadcrumb from '@/components/Breadcrumb/index.vue'
 
 @Component({
   name: 'Navbar',
   components: {
-    Hamburger
+    Hamburger,
+    Breadcrumb,
   }
 })
 export default class Navbar extends Vue {
@@ -41,6 +45,9 @@ export default class Navbar extends Vue {
     &:hover {
       background: rgba(0, 0, 0, .025);
     }
+  }
+  .breadcrumb-container {
+    float: left;
   }
 }
 </style>
