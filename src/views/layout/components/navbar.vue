@@ -4,12 +4,30 @@
     <breadcrumb class="breadcrumb-container"></breadcrumb>
     <div class="right-menu">
       <screenfull class="right-menu-item hover-effect"></screenfull>
+      <!--头像 -->
+      <el-dropdown class="right-menu-item hover-effect avatar-container" trigger="click">
+        <div class="avatar-wrapper">
+          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <i class="el-icon-caret-bottom"></i>
+        </div>
+        <el-dropdown-menu slot="dropdown">
+          <router-link to="/">
+            <el-dropdown-item>
+              {{ dropdown.dashboard }}
+            </el-dropdown-item>
+          </router-link>
+          <el-dropdown-item divided>
+            <span style="display: block;" @click="fedLogOut">{{ dropdown.logout }}</span>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { AppModule } from '@/store/app/index.ts'
+import { UserModule } from '@/store/user/index.ts'
 
 import Hamburger from '@/components/Hamburger/index.vue'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
@@ -24,14 +42,28 @@ import Screenfull from '@/components/Screenfull/index.vue'
   }
 })
 export default class Navbar extends Vue {
+  // data
+  private dropdown: {} = {
+    dashboard: '首页',
+    logout: '退出登录'
+  }
+
   // computed
   get isActive() {
     return !AppModule.sidebar.opened
+  }
+  get avatar() {
+    return UserModule.avatar
   }
   // methods
   // 切换侧边栏显示/隐藏
   toggleClick(): void {
     AppModule.toggleSideBar()
+  }
+  fedLogOut() {
+    UserModule.FedLogOut().then(() => {
+      location.reload()
+    })
   }
 }
 </script>
@@ -70,6 +102,28 @@ export default class Navbar extends Vue {
         transition: background .3s;
         &:hover {
           background: rgba(0, 0, 0, .025)
+        }
+      }
+    }
+    .avatar-container {
+      margin-right: 30px;
+      .avatar-wrapper {
+        box-sizing: border-box;
+        height: 50px;
+        padding-top: 5px;
+        position: relative;
+        .user-avatar {
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+        }
+        .el-icon-caret-bottom {
+          position: absolute;
+          cursor: pointer;
+          top: 28px;
+          right: -20px;
+          font-size: 12px;
         }
       }
     }

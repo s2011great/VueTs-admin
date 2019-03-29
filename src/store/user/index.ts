@@ -16,6 +16,7 @@ class User extends VuexModule {
   public userId: string = ''
   public roles: [] = []
   public menus: [] = []
+  public avatar: string = ''
 
   // @Mutation
   // private SET_USERNAME(userName: string) {
@@ -34,7 +35,7 @@ class User extends VuexModule {
   //   this.userId = userId
   // }
 
-  @MutationAction({mutate: ['name', 'userId', 'roles', 'menus']})
+  @MutationAction({mutate: ['name', 'userId', 'roles', 'menus', 'avatar']})
   public async getUserInfo() {
     const token: string | undefined = getToken()
     if (token === 'undefined') {
@@ -46,6 +47,7 @@ class User extends VuexModule {
       userId: data.data.userId,
       roles: data.data.roles,
       menus: data.data.menus,
+      avatar: data.data.avatar,
     }
   }
 
