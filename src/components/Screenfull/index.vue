@@ -4,7 +4,7 @@
   </div>
 </template>
 <script lang="ts">
-import screenfull from 'screenfull'
+import screenfull, { Screenfull as Sf } from 'screenfull'
 import { Vue, Component } from 'vue-property-decorator'
 import { mount } from '@vue/test-utils';
 @Component({
@@ -22,21 +22,20 @@ export default class Screenfull extends Vue {
   // methods
   // 点击切换全屏/退出全屏
   fullscreenClick() {
-    console.log('######')
-    if (!screenfull.enabled) {
+    if (!(screenfull as Sf).enabled) {
       this.$message({
         message: 'you browser can not work',
         type: 'warning'
       })
       return false
     }
-    screenfull.toggle()
+    (screenfull as Sf).toggle()
   }
   // 初始化
   init() {
-    if (screenfull.enabled) {
-      screenfull.on('change', (): void => {
-        this.isFullscreen = screenfull.isFullscreen
+    if ((screenfull as Sf).enabled) {
+      (screenfull as Sf).on('change', (): void => {
+        this.isFullscreen = (screenfull as Sf).isFullscreen
       })
     }
   }
