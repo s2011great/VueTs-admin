@@ -40,11 +40,11 @@ import { Progress } from 'element-ui';
   })
 export default class SidebarItem extends Vue {
   // data
-  private onlyOneChild: Object = {}
+  private onlyOneChild: object = {}
 
   // prop
-  @Prop({ required: true }) private item!: Object
-  @Prop({ default: '' }) private basePath!: String
+  @Prop({ required: true }) private item!: object
+  @Prop({ default: '' }) private basePath!: string
 
   // methods
   /***
@@ -53,7 +53,7 @@ export default class SidebarItem extends Vue {
    * @param children: Array<{ hidden: Boolean }>
    * @param parent: Object
    */
-  private hasOneShowingChild(children: Array<{ hidden: Boolean }>, parent: Object) {
+  private hasOneShowingChild(children: Array<{ hidden: boolean }>, parent: object) {
     const showingChildren = children.filter(item => {
       if (item.hidden) {
         return false
@@ -87,7 +87,7 @@ export default class SidebarItem extends Vue {
    *@param routePath 跳转地址
    *@param e 事件对象
    */
-  private clickLink(routePath: string, e: any) {
+  private clickLink(routePath: string, e: Event) {
     e.preventDefault()
     const path = this.resolvePath(routePath)
     this.$router.push(path)

@@ -3,7 +3,7 @@ import {getModule, VuexModule, Module, Mutation, Action } from 'vuex-module-deco
 import cookie from 'js-cookie'
 
 interface Sidebar {
-  opened: Boolean
+  opened: boolean
 }
 
 @Module({ dynamic: true, store, name: 'app' })

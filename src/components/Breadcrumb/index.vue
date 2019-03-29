@@ -15,11 +15,11 @@ import { Route } from 'vue-router'
 })
 export default class Breadcrumb extends Vue {
   // data
-  private levelList: Object[] = []
+  private levelList: object[] = []
 
   // 监听$route
   @Watch('$route')
-  on$routeChanged() {
+  onRouteChanged() {
     this.getBreadcrumb()
   }
 

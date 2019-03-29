@@ -10,10 +10,10 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 })
 export default class Hamburger extends Vue {
   // props
-  @Prop({ default: false }) isActive!: Boolean
-  @Prop({ default: null }) toggleClick!: Function
+  @Prop({ default: false }) isActive!: boolean
+  @Prop({ default: null }) toggleClick!: any
   // data
-  private iconName: String = 'hamburger'
+  private iconName: string = 'hamburger'
 }
 </script>
 <style lang="scss" scoped>
