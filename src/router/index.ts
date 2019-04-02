@@ -7,7 +7,6 @@ Vue.use(Router);
 /**
  * hidden: true  这个路由不在侧边导航栏sidebar中显示
  * alwaysShow: true  表示路由必须显示，无论有没有children项
- * 
  * meta: {
  *  title: '首页'  生成路由菜单的title
  *  icon:  'xxx'  设置菜单图标
@@ -20,15 +19,15 @@ export const constantRouterMap = [
     path: '/login',
     name: 'login',
     hidden: true,
-    component: () => import('@/views/login/index.vue'),
-  },
+    component: () => import('@/views/login/index.vue')
+  }
 ]
 
 export default new Router({
   scrollBehavior: () => { y: 0 },
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: constantRouterMap,
+  routes: constantRouterMap
 })
 
 // 动态路由，需要后端返回路由表然后对比生成
@@ -44,7 +43,7 @@ export const asyncRoutes = [
         component: () => import('@/views/home/index.vue'),
         meta: { title: '首页', icon: 'dashboard' }
       }
-    ],
+    ]
   },
   {
     path: '/system',
@@ -83,6 +82,6 @@ export const asyncRoutes = [
         name: 'permission',
         meta: { title: '权限管理', icon: 'permission' }
       }
-    ],
-  },
+    ]
+  }
 ]

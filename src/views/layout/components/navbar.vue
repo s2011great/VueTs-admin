@@ -38,7 +38,7 @@ import Screenfull from '@/components/Screenfull/index.vue'
   components: {
     Hamburger,
     Breadcrumb,
-    Screenfull,
+    Screenfull
   }
 })
 export default class Navbar extends Vue {

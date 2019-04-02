@@ -1,5 +1,5 @@
 import store from '@/store/index'
-import {getModule, VuexModule, Module, Mutation, Action } from 'vuex-module-decorators'
+import { getModule, VuexModule, Module, Mutation, Action } from 'vuex-module-decorators'
 import cookie from 'js-cookie'
 
 interface Sidebar {
@@ -10,7 +10,7 @@ interface Sidebar {
 class App extends VuexModule {
   public sidebar: Sidebar = {
     // 初始化opened，从cookie中获取sidebarStatus
-    opened: cookie.get('sidebarStatus')? !!+cookie.get('sidebarStatus') : true
+    opened: cookie.get('sidebarStatus') ? !!+(cookie.get('sidebarStatus') as string) : true
   }
 
   // opened状态切换，并setcookie 'sidebarStatus'

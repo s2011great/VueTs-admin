@@ -21,8 +21,8 @@ import Navbar from './components/navbar.vue'
 @Component({
   components: {
     Sidebar,
-    Navbar,
-  },
+    Navbar
+  }
 })
 export default class Layout extends Vue {
   // computed

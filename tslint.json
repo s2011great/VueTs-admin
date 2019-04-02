@@ -1,22 +1,25 @@
 {
-  "defaultSeverity": "warning",
-  "extends": [
-    "tslint:recommended"
-  ],
-  "linterOptions": {
-    "exclude": [
-      "node_modules/**"
-    ]
-  },
-  "rules": {
-    "quotemark": [true, "single"], // 字符串文字需要单引号或双引号。
-    "indent": [true, "spaces", 2], // 使用制表符或空格强制缩进。
-    "interface-name": false, // 接口名要求大写开头
-    "ordered-imports": false, // 要求将import语句按字母顺序排列并进行分组
-    "object-literal-sort-keys": false, // 检查对象文字中键的排序
-    "no-consecutive-blank-lines": false, // 不允许连续出现一个或多个空行
-    "semicolon": false, // 是否分号结尾
-    "no-console": false, //不能使用console
-    "eofline": false, // 是否末尾另起一行
-  },
+    "defaultSeverity": "warning",
+    "extends": [
+        "tslint-config-alloy"
+    ],
+    "jsRules": {},
+    "rules": {
+        // LF
+        "linebreak-style": false,
+        // 行尾必须有分号
+        "semicolon": false,
+        // 禁止使用 JSDoc，因为 TypeScirpt 已经包含了大部分功能
+        "no-redundant-jsdoc": true,
+        // 禁止对函数的参数重新赋值
+        "no-parameter-reassignment": false,
+        "ordered-imports": false,
+        "member-access": false,
+        "no-inferrable-types": false,
+        "no-implicit-dependencies": false,
+        "no-unused-expression": false,
+        // 指定类成员的排序规则
+        "member-ordering": false
+    },
+    "rulesDirectory": []
 }

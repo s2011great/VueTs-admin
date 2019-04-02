@@ -31,7 +31,7 @@ export default class Breadcrumb extends Vue {
   // methods
   // 利用$route.matched 获取嵌套的路径片段
   getBreadcrumb() {
-    this.levelList = this.$route.matched.filter(item => item.meta && item.meta.title)
+    this.levelList = this.$route.matched.filter((item) => item.meta && item.meta.title)
   }
   // 跳转link函数
   handleLink(item: Route) {

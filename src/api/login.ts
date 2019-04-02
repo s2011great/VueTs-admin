@@ -1,11 +1,10 @@
-import { Base64 } from 'js-base64'
 import request from '@/utils/request'
+import { Base64 } from 'js-base64'
 
 /**
  * 登录接口
- * 
- * @param username 
- * @param password 
+ * username
+ * password
  */
 export const loginByUsername = (username: string, password: string) => {
   // password base64加密
@@ -13,7 +12,7 @@ export const loginByUsername = (username: string, password: string) => {
   const data = {
     username,
     password
-  }
+  };
   return request({
     url: '/login',
     method: 'post',
@@ -23,8 +22,7 @@ export const loginByUsername = (username: string, password: string) => {
 
 /**
  * 通过token获取用户信息
- * 
- * @param token
+ * token
  */
 export const getUserInfoByToken = (token: string | undefined) => {
   return request({

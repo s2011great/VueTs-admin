@@ -30,15 +30,25 @@ export default class Login extends Vue{
   // data
   private formLogin = {
     username: 'admin',
-    password: 'admin',
+    password: 'admin'
   }
   private loading = false
   // methods
   private handleLogin() {
     this.loading = true
-    UserModule.loginByName(this.formLogin).then(res => {
-      this.loading = false
-      this.$router.push({path: '/'})
+    UserModule.loginByName(this.formLogin).then((res) => {
+      if (res) {
+        this.loading = false
+        this.$router.push({path: '/'})
+      } else {
+        this.loading = false
+        this.$message({
+          message: 'Login is mistake',
+          type: 'warning'
+        })
+      }
+    }).catch((err) => {
+      console.log(err)
     })
   }
 }

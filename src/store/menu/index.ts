@@ -1,5 +1,5 @@
 import store from '@/store/index'
-import {getModule, VuexModule, Module, Mutation, Action } from 'vuex-module-decorators'
+import { getModule, VuexModule, Module, Mutation, Action } from 'vuex-module-decorators'
 import { asyncRoutes } from '@/router/index'
 
 

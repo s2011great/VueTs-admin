@@ -47,7 +47,7 @@ class User extends VuexModule {
       userId: data.data.userId,
       roles: data.data.roles,
       menus: data.data.menus,
-      avatar: data.data.avatar,
+      avatar: data.data.avatar
     }
   }
 
